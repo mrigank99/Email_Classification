@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+	.back-ground{
+	background-image: url('../static/intro.jpg');
+	background-repeat: repeat;
+	background-size: cover; 
+	}
+	.mainbox{
+		margin-top: 10%;
+		color: black;
+	}
+	.line{
+		border-top: 3px solid black;
+	}
+	.btn{
+		border-radius: 12px;
+
+	}
+</style>
+<body class="back-ground">
+<div class="container ml-5">
+	<div class="row">
+			<div class="col-7 mainbox">
+				<h1 class="display-3">Customer E-mail Classification</h1>
+				<hr class="line">
+				<form action="{{ url_for('analyze') }}" method="post">
+					<div class="form-group">   		
+				    <textarea class="form-control ml-3" id="review" rows="5" cols="4" style="width: 90%;" placeholder="Enter email here" name="content" ></textarea> </div>
+				    <div class="d-flex justify-content-end mr-5">
+				    <button class="btn btn-info btn-sm" type="submit" style="width: 25%;"><h4>Analyze</h4></button>
+				    </div>	
+				</form>
+
+			</div>
+		</div>	
+</div>
+</body>
+</html>

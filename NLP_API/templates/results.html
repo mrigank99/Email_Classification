@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<style>
+	.mainbox{
+		margin-top: 2%;
+		color: black;
+		margin-left: 8%;
+		color: black;
+		align-content: center;
+		}
+	.back-ground{
+	background: linear-gradient(290deg, rgb(228, 232, 231) 9%, rgb(169, 178, 173) 27%, rgb(217, 223, 221) 94%);
+	height: 100%;
+	background-attachment: fixed;
+	}
+	.top-heading{
+		text-align: center;
+		margin-top: 2%;
+	}
+	.top-text{
+		margin-left: 8%;
+	}
+
+	.wrapper{
+	height: 80%;
+	width: 80%;
+	border-radius: 25px;
+	}
+	
+	.bar{
+		padding: 0px;
+		background-color: #00C851;
+		color: white;
+		border-radius: 25px; 
+		height: 100%;
+		width: {{  prediction[0]['prob'] }}%;
+	}
+</style>
+<body class="back-ground">
+	<h1 class=" display-1 top-heading">Email Classification</h1>
+	<hr style="border-top: 2px solid; width: 80%;">
+<div class="container">
+	<div class="row ml-auto">
+		<h2 class="top-text">Your results are: </h2>
+	</div><br>
+	<div class="row" style="margin-left: 5%;">
+		<div class="col-3">
+		<h5 class="top-text">Category:  {{ cat  }}</h5>
+		</div>
+		<div class="col-7">
+		<div class="wrapper border border-dark"><div class="bar"><p style="padding: 0px; height: 15px; margin-left:2%;">Confidence Level</p></div></div>
+		</div>
+	</div>
+	<div class="row ml-auto">
+		<h5 class="top-text">Product:  {{ product  }}</h5>
+	</div>
+	<div class="row">
+		<div class="col-10 mainbox">
+			<table class="table table-bordered table-hover">
+				  <thead class="thead-dark" style="text-align: center;">
+					<tr>
+					  <th scope="col">Your Input</th>
+					  <th scope="col" colspan="2">Classification Category</th>
+					</tr>
+				  </thead>
+				  <tbody class="table-light result-table">
+					<tr>
+						<td rowspan="2">{{ usertext }}</td>
+						<td>{{  prediction[0]['name'] }}</td>
+						<td>{{  prediction[0]['prob'] }} %</td>
+					</tr>
+					{% for value in prediction[1:2] %}
+						<tr>
+						  <td>{{  value['name'] }}</td>
+						  <td>{{  value['prob'] }} %</td>
+						</tr>
+					{% endfor %}
+				  </tbody>
+				</table>
+		</div>
+	</div>
+</div>
+</body>
+</html>

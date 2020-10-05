@@ -1,0 +1,7 @@
+Flask==1.1.2
+textblob==0.15.3
+flair==0.5
+nltk==3.5
+numpy==1.18.4
+requests==2.23.0
+scikit_learn==0.23.1
